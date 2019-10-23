@@ -1,0 +1,35 @@
+.search {
+    width: 100%;
+    height: 12vw;
+    background: #ffffff;
+    line-height: 12vw;
+    margin-top: 10vw;
+    transform: translateY(-6vw);
+    border-radius: 6vw;
+    font-size: 4vw;
+}
+.search>input {
+    border: none;
+    outline: none;
+    color: #ccc;
+}
+.search>i {
+    margin: 0 3vw;
+    font-size: 4vw;
+    color: #ccc;
+}
+.footer {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 20vw;
+    background: #e70909;
+    display: flex;
+}
+.footer>i {
+    color: #fff;
+    font-size: 5vw;
+    margin: 0 4vw;
+    line-height: 20vw;
+}

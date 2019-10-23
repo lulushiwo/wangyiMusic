@@ -1,22 +1,105 @@
-.App {
-  text-align: center;
+.main {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 110, 255, 0.301);
+    overflow: hidden;
 }
-
-.App-logo {
-  height: 40vmin;
+.login {
+    width: 50%;
+    background: #ffffff;
+    margin-left: 50%;
+    margin-top: 50vh;
+    transform: translateX(-50%) translateY(-50%);
+    overflow: hidden;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.login div {
+    overflow: hidden;
 }
-
-.App-link {
-  color: #09d3ac;
+.login div>span {
+    display: block;
+    text-align: left;
+    margin: 10px 0;
+}
+.login div>input {
+    width: calc(100% - 2px);
+    outline: none;
+    height: 30px;
+    border-top: solid 1px #ccc; 
+    border-bottom: solid 1px #ccc; 
+}
+.login .user {
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 10px;
+    width: 100%;
+    height: 30px;
+    background: blueviolet;
+    line-height: 30px;
+}
+.list {
+    display: flex;
+    text-align: center;
+    height: 15vw;
+    line-height: 15vw;
+    border-bottom: solid 1px #ccc;
+    font-size: 4vw;
+}
+.list>li {
+    width: 25%;
+}
+.active {
+    background: rgb(14, 1, 13);
+    color: #ffffff;
+    border-radius: 4vw;
+    padding: 1vw 3vw; 
+}
+.recomTitle {
+    width: 100%;
+    height: 12vw;
+    overflow: hidden;
+}
+.recomTitle>h3 {
+    float: left;
+    line-height: 12vw;
+    margin-left: 4vw;
+    font-size: 4.5vw;
+}
+.recomTitle>span {
+    float: right;
+    margin-right: 4vw;
+    height: 6vw;
+    line-height: 6vw;
+    border: solid 1px #ccc;
+    padding: 0 3vw;
+    margin-top: 6vw;
+    transform: translateY(-3vw);
+    border-radius: 3vw;
+    font-size: 3vw;
+}
+.recomList {
+    width: calc(100% - 8vw);
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.recomList>li {
+    width: 31.5%;
+    margin-bottom: 3.5vw;
+    overflow: hidden;
+}
+.recomList>li>img {
+    width: 100%;
+    border-radius: 2vw;
+}
+.recomList>li>span {
+    font-size: 3vw;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    display: -webkit-box;
+    display: box;
 }
