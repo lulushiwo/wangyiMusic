@@ -3,21 +3,31 @@ import './app.css'
 import './component/footer.css';
 import axios from 'axios'
 import './reset.css'
-import { Carousel } from 'antd-mobile';
-import Footer from './component/footer'
+// import Recom from './component/recom'
+
+import Footer from './component/footer';
+import {Switch,Route,NavLink} from 'react-router-dom'
+import FM from './component/FM'
+import Recom from './component/recom'
+import Song from './component/song'
+import Rank from './component/rank'
+
+
+
 axios.defaults.baseURL = 'http://localhost:3000'
 // import ReactDOM from 'react-dom';
 
 
 class App extends React.Component {
     constructor(props) {
+        // super 
         super(props);
         this.state = {
             date: new Date(),
             email: '',
             pwd: '',
             num: 0,
-            list:['个性推荐','主播电台','排行榜','歌单'],
+            list: [{ type: '个性推荐', name: '/recom' }, { type: '主播电台', name: '/fm' }, { type: '排行榜', name: '/rank' }, {type: '歌单',name:'/song'}],
             imageUrl:[],
             recomList: [],
             imgHeight: 176,
@@ -25,72 +35,38 @@ class App extends React.Component {
         };
         this.changeCor = this.changeCor.bind(this)
     }
-    componentWillMount() {
-        axios.get('/banner')
-        .then(res => {
-            // console.log(res.data.banners[0].imageUrl);
-            this.setState({ imageUrl: res.data.banners})
-            
-        })
-        axios.get('/personalized?limit=6')
-        .then(res => {
-            console.log(res.data.result);
-            this.setState({ recomList: res.data.result})
-        })
+    componentDidMount() {
+       
+        
     }
     changeCor(index) {
         
     }
-   
+    
     render() {
         const homeList = this.state.list
-        return <div>
-            <Footer />
-            <ul className='list'>
-                {
-                    homeList.map((todo, index) => {
-                        return (
-                            <li key={index}>
-                                <span className={this.state.num === index ?'active':''}> {todo}</span>
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-           
-            <div className='bar'>
-                    <Carousel
-                        autoplay={true}
-                        infinite
-                    >
+        return (
+                <div>
+                    <Footer />
+                    <ul className='list'>
                         {
-                            this.state.imageUrl.map((todo,index) => {
-                                return(
-                                    <img key={index} src={todo.imageUrl} alt=''></img>
+                            homeList.map((todo, index) => {
+                                return (
+                                    <li key={index}>
+                                        <NavLink to={todo.name}><span>{todo.type}</span></NavLink>
+                                    </li>
                                 )
                             })
                         }
-                    </Carousel>
-            </div>
-            <div className='recom'>
-                <div className='recomTitle'>
-                    <h3>推荐歌单</h3>
-                    <span>歌单广场</span>
+                    </ul>
+                    <Switch>
+                        <Route exact path='/recom' component={Recom}></Route>
+                        <Route path='/fm' component={FM}></Route>
+                        <Route path='/rank' component={Rank}></Route>
+                        <Route path='/song' component={Song}></Route>
+                    </Switch>
                 </div>
-                <ul className='recomList'>
-                    {
-                        this.state.recomList.map((todo,index) => {
-                            return(
-                                <li key={index}>
-                                    <img src={todo.picUrl} alt=''></img>
-                                    <span>{todo.name}</span>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-            </div>
-        </div>
+        )
     }
 }
 export default App

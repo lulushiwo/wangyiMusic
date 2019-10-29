@@ -10,6 +10,20 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+body {
+    width: 100vw;
+    height: 100%;
+}
+a {
+    text-decoration: none;
+    color: #000000;
+}
+a:hover {
+    text-decoration: none !important;
+}
+a:link {
+    text-decoration: none;
+}
 fieldset, img {
     border: 0 none;
 }

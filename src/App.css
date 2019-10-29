@@ -52,7 +52,8 @@
     background: rgb(14, 1, 13);
     color: #ffffff;
     border-radius: 4vw;
-    padding: 1vw 3vw; 
+    padding: 1vw 3vw;
+    text-decoration: none; 
 }
 .recomTitle {
     width: 100%;
@@ -85,6 +86,7 @@
     flex-wrap: wrap;
 }
 .recomList>li {
+    position: relative;
     width: 31.5%;
     margin-bottom: 3.5vw;
     overflow: hidden;
@@ -102,4 +104,19 @@
     box-orient: vertical;
     display: -webkit-box;
     display: box;
+}
+.count {
+    position: absolute;
+    top: 0;
+    right: 1vw;
+    color: #ffffff;
+    font-weight: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+.count>span {
+    font-size: 3vw;
+}
+.count>i {
+    font-size: 3vw;
+    margin-right: 2px;
 }
