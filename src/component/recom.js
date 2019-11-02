@@ -14,12 +14,12 @@ export default class recom extends React.Component {
     componentDidMount() {
         axios.get('/personalized?limit=6')
             .then(res => {
-                // console.log(res.data.result);
+                console.log(res.data.result);
                 this.setState({ recomList: res.data.result })
             })
         axios.get('/banner')
             .then(res => {
-                // console.log(res.data.banners[0].imageUrl);
+                console.log(res.data.banners[0].imageUrl);
                 this.setState({ imageUrl: res.data.banners })
 
             })
