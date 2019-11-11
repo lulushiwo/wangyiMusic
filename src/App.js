@@ -6,12 +6,12 @@ import './reset.css'
 // import Recom from './component/recom'
 
 import Footer from './component/footer';
-import {Switch,Route,NavLink} from 'react-router-dom'
+import {Switch,Route,NavLink,Redirect} from 'react-router-dom'
 import FM from './component/FM'
 import Recom from './component/recom'
 import Song from './component/song'
 import Rank from './component/rank'
-
+import songDetail from './component/songDetail'
 
 
 axios.defaults.baseURL = 'http://localhost:3000'
@@ -61,6 +61,7 @@ class App extends React.Component {
                     </ul>
                     <Switch>
                         <Route exact path='/recom' component={Recom}></Route>
+                        <Redirect path="/recom" to="/recom" />
                         <Route path='/fm' component={FM}></Route>
                         <Route path='/rank' component={Rank}></Route>
                         <Route path='/song' component={Song}></Route>

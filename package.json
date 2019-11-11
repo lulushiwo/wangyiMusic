@@ -10,6 +10,7 @@
     "customize-cra": "^0.8.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
+    "lyric-parser": "^1.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.1",
     "react-app-rewired": "2.x",

@@ -1,9 +1,10 @@
 import React,{Component} from 'react';
 import axios from 'axios';
 import { Carousel } from 'antd-mobile';
+import { Switch, Route, Link, Redirect } from 'react-router-dom'
+import songDetail from './songDetail'
 
-
-export default class recom extends React.Component {
+export default class recom extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -14,15 +15,20 @@ export default class recom extends React.Component {
     componentDidMount() {
         axios.get('/personalized?limit=6')
             .then(res => {
-                console.log(res.data.result);
+                // console.log(res.data.result);
                 this.setState({ recomList: res.data.result })
             })
         axios.get('/banner')
             .then(res => {
-                console.log(res.data.banners[0].imageUrl);
+                // console.log(res.data.banners[0].imageUrl);
                 this.setState({ imageUrl: res.data.banners })
 
             })
+        axios.get('/lyric?id=33894312')
+              .then(res => {
+                  console.log(res);
+                  
+              })
     }
     filterNum = (num) => {
         const index = 10000;
@@ -66,6 +72,7 @@ export default class recom extends React.Component {
                                         <span>{this.filterNum(todo.playCount)}</span>
                                     </div>
                                 </li>
+                                
                             )
                         })
                     }
